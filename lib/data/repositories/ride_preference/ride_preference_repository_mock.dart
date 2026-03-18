@@ -4,7 +4,10 @@ import '../../../model/ride_pref/ride_pref.dart';
 class RidePreferenceRepositoryMock implements RidePreferenceRepository{
   RidePreference? _selectedPreference;
   final List<RidePreference> _preferenceHistory = [];
-  static final int maxSeat = 8;
+  static final int maxSeat = 10;
+
+  @override
+  int get maxSeatsAllowed => maxSeat;
 
   @override
   RidePreference? getSelectedPreference() {

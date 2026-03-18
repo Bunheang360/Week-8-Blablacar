@@ -9,6 +9,7 @@ import './data/repositories/ride_preference/ride_preference_repository.dart';
 import './data/repositories/ride_preference/ride_preference_repository_mock.dart';
 import './ui/states/ride_preference_state.dart';
 import './ui/screens/home/view_model/home_view_model.dart';
+import './ui/screens/rides_selection/view_model/ride_selection_view_model.dart';
 
 /// Configure provider dependencies for dev environment
 List<SingleChildWidget> get devProviders {
@@ -23,6 +24,9 @@ List<SingleChildWidget> get devProviders {
 
     // inject home view model
     ChangeNotifierProvider<HomeViewModel>(create: (context) => HomeViewModel(ridePreferencestate: (context.read<RidePreferencestate>()),),),
+
+    // inject ride selection view model
+    ChangeNotifierProvider<RideSelectionViewModel>(create: (context) => RideSelectionViewModel(ridePreferencesState: context.read<RidePreferencestate>(),rideRepository: context.read<RideRepository>(),)..init(),),
   ];
 }
 

@@ -12,6 +12,7 @@ class RidePreferencestate extends ChangeNotifier {
 
   RidePreference? get selectedPreference => _selectedPreference;
   List<RidePreference> get preferenceHistory => _preferenceHistory;
+  int get maxSeatAllowed => _repository.maxSeatsAllowed;
 
   void init() {
     _preferenceHistory = _repository.fetchRidePreference();
